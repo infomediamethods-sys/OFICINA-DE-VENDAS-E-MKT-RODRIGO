@@ -161,20 +161,22 @@
       gap:12px;
       margin-top:34px;
       padding:28px 22px 30px;
+      justify-items:start;
+      text-align:left;
     }
     .partnership-block .hero-event-item{
       display:grid;
-      grid-template-columns:48px minmax(0,1fr);
+      grid-template-columns:35px minmax(0,1fr);
       align-items:baseline;
       width:100%;
-      gap:10px;
-      font-size:0.76rem;
+      gap:8px;
+      font-size:clamp(0.62rem,2.55vw,0.72rem);
     }
     .partnership-block .hero-event-label{
-      font-size:0.62rem;
-      letter-spacing:0.08em;
+      font-size:0.58rem;
+      letter-spacing:0.06em;
     }
-    .partnership-block .hero-event-value{line-height:1.45;}
+    .partnership-block .hero-event-value{line-height:1.45; white-space:nowrap;}
   }
   @media (max-width:360px){
     .hero-inner{padding:0 18px;}
@@ -182,6 +184,9 @@
     .lockup-name{font-size:0.88rem;}
     .lockup-company{font-size:0.48rem; letter-spacing:0.045em;}
     .lockup-amp{font-size:0.98rem;}
+    .partnership-block .hero-event{padding-left:16px; padding-right:16px;}
+    .partnership-block .hero-event-item{grid-template-columns:30px minmax(0,1fr); gap:6px; font-size:0.58rem;}
+    .partnership-block .hero-event-label{font-size:0.5rem; letter-spacing:0.045em;}
   }
 
 
