@@ -125,7 +125,7 @@
   /* ===================== HERO ===================== */
   .hero{
     background:radial-gradient(ellipse 900px 500px at 85% -10%, rgba(201,168,104,0.16), transparent 60%), linear-gradient(180deg, var(--navy-950), var(--navy-900) 75%);
-    color:var(--white); padding:84px 0 0; position:relative; overflow:hidden;
+    color:var(--white); padding:84px 0 58px; position:relative; overflow:hidden;
   }
   .hero::after{
     content:""; position:absolute; inset:0;
@@ -141,14 +141,21 @@
   .hero-sub{font-size:clamp(1rem, 1.4vw, 1.15rem); color:rgba(255,255,255,0.82); max-width:600px; margin:0 auto 0;}
   .hero-sub u em, .hero-sub em u{font-style:italic; text-decoration:underline; text-decoration-color:var(--champagne); text-underline-offset:4px;}
   .hero-event{display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap; margin:-8px auto 28px;}
-  .hero-event-item{display:inline-flex; align-items:center; gap:7px; color:rgba(255,255,255,0.78); font-size:0.78rem; font-weight:600; line-height:1.35;}
-  .hero-event-label{color:var(--champagne-soft); font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:700;}
-  .hero-event-value{color:rgba(255,255,255,0.82);}
+  .hero-event-item{display:grid; grid-template-columns:30px minmax(0,1fr); align-items:center; gap:10px; color:rgba(255,255,255,0.78); font-size:0.78rem; font-weight:600; line-height:1.35;}
+  .hero-event-icon{
+    width:30px; height:30px; display:grid; place-items:center; border-radius:8px;
+    background:rgba(201,168,104,0.15); color:var(--champagne-soft);
+  }
+  .hero-event-icon svg{width:16px; height:16px; stroke:currentColor; stroke-width:1.9; fill:none; stroke-linecap:round; stroke-linejoin:round;}
+  .hero-event-text{min-width:0; text-align:left;}
+  .hero-event-label{display:block; color:var(--champagne-soft); font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:700;}
+  .hero-event-value{display:block; color:rgba(255,255,255,0.82);}
   @media (max-width:640px){ .hero-event{gap:8px 10px; margin:-6px auto 24px;} .hero-event-item{font-size:0.74rem;} }
   .hero-cta{margin-top:52px;}
   .partnership-block .hero-event{
-    width:100vw; box-sizing:border-box; justify-content:flex-start; gap:22px; margin:38px calc(50% - 50vw) 0; padding:34px max(28px, calc((100vw - var(--maxw)) / 2 + 28px));
-    border-top:1px solid rgba(201,168,104,0.28);
+    width:min(100%,760px); box-sizing:border-box; justify-content:center; gap:12px 18px; margin:38px auto 0;
+    padding:16px 18px; background:rgba(255,255,255,0.045); border:1px solid rgba(201,168,104,0.24);
+    border-radius:8px; box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);
   }
   .partnership-block .hero-cta{margin-top:28px;}
 
@@ -167,7 +174,7 @@
   .lockup-company{font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--champagne-soft); font-weight:700;}
   .lockup-amp{font-family:'Fraunces',serif; font-style:italic; font-size:1.5rem; color:var(--champagne); line-height:1; padding-top:2px;}
   @media (max-width:520px){
-    .hero{padding-top:64px;}
+    .hero{padding:64px 0 44px;}
     .hero-inner{padding:0 22px;}
     .partnership-block{margin-top:40px;}
     .authority-photo{margin:16px -18px 0;}
@@ -192,23 +199,23 @@
       grid-template-columns:minmax(0,1fr);
       gap:12px;
       margin-top:34px;
-      padding:28px 22px 30px;
+      padding:15px;
       justify-items:start;
       text-align:left;
     }
     .partnership-block .hero-event-item{
       display:grid;
-      grid-template-columns:35px minmax(0,1fr);
-      align-items:baseline;
+      grid-template-columns:30px minmax(0,1fr);
+      align-items:center;
       width:100%;
-      gap:8px;
+      gap:10px;
       font-size:clamp(0.62rem,2.55vw,0.72rem);
     }
     .partnership-block .hero-event-label{
       font-size:0.58rem;
       letter-spacing:0.06em;
     }
-    .partnership-block .hero-event-value{line-height:1.45; white-space:nowrap;}
+    .partnership-block .hero-event-value{line-height:1.45; white-space:normal;}
   }
   @media (max-width:360px){
     .hero-inner{padding:0 18px;}
@@ -445,7 +452,7 @@
   .publico-signal h3{font-size:0.96rem; color:var(--navy-950); margin-bottom:9px; line-height:1.25;}
   .publico-signal p{font-size:0.9rem; color:var(--ink-soft); line-height:1.48;}
   .publico-then{
-    max-width:620px; margin:0 auto 34px; padding-top:24px; border-top:1px solid rgba(140,106,50,0.18);
+    max-width:620px; margin:0 auto 34px; padding-top:24px;
     text-align:center; font-family:'Fraunces',serif; font-style:italic; font-size:1.05rem; color:var(--navy-900);
   }
   .publico-intro{text-align:center; font-size:0.92rem; color:var(--ink-soft); margin-bottom:16px; text-transform:uppercase; letter-spacing:0.06em; font-weight:600;}
@@ -505,15 +512,29 @@
   .faq-item p{padding:0 4px 20px; color:var(--ink-soft); font-size:0.93rem; max-width:640px;}
 
   /* ===================== PASSAPORTES ===================== */
-  .passaportes-head{max-width:720px; margin-bottom:34px;}
+  .passaportes-head{max-width:760px; margin-bottom:52px;}
   .passaportes-head h2{font-size:clamp(1.6rem,2.65vw,2.12rem); color:var(--white);}
   .passaportes-event{
-    display:flex; flex-wrap:wrap; gap:14px 24px; margin-top:20px; padding-bottom:18px;
-    border-bottom:1px solid rgba(201,168,104,0.22);
+    position:relative; display:flex; flex-wrap:wrap; gap:12px 18px; margin-top:20px;
+    padding:16px 18px; background:rgba(255,255,255,0.045); border:1px solid rgba(201,168,104,0.24);
+    border-radius:8px; box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);
   }
-  .passaportes-event-item{display:flex; align-items:baseline; gap:8px; min-width:0; font-size:0.84rem; color:rgba(255,255,255,0.78); line-height:1.45;}
-  .passaportes-event-label{font-size:0.68rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--champagne-soft);}
-  .passaportes-event-item span:last-child{min-width:0;}
+  .passaportes-event::after{
+    content:""; position:absolute; left:0; right:0; bottom:-24px; height:1px;
+    background:linear-gradient(90deg, transparent, rgba(201,168,104,0.34), transparent);
+  }
+  .passaportes-event-item{
+    display:grid; grid-template-columns:30px minmax(0,1fr); align-items:center; gap:10px;
+    min-width:min(100%, 280px); flex:1; color:rgba(255,255,255,0.78); line-height:1.45;
+  }
+  .passaportes-event-icon{
+    width:30px; height:30px; display:grid; place-items:center; border-radius:8px;
+    background:rgba(201,168,104,0.15); color:var(--champagne-soft);
+  }
+  .passaportes-event-icon svg{width:16px; height:16px; stroke:currentColor; stroke-width:1.9; fill:none; stroke-linecap:round; stroke-linejoin:round;}
+  .passaportes-event-text{min-width:0;}
+  .passaportes-event-label{display:block; margin-bottom:1px; font-size:0.64rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--champagne-soft);}
+  .passaportes-event-value{display:block; min-width:0; color:rgba(255,255,255,0.84); font-size:0.84rem; font-weight:600;}
   .passaportes-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
   @media (max-width:900px){ .passaportes-grid{grid-template-columns:1fr; max-width:460px; margin:0 auto;} }
   .passaporte-card{background:var(--navy-800); border:1px solid var(--line-dark); border-radius:8px; padding:32px 26px; display:flex; flex-direction:column; height:100%;}
@@ -578,8 +599,8 @@
     .ctafinal h2{font-size:clamp(1.5rem,6.5vw,1.88rem);}
     .prova-head h2,
     .faq-head h2{font-size:clamp(1.42rem,6.2vw,1.8rem);}
-    .passaportes-event{flex-direction:column; gap:10px; margin-top:18px;}
-    .passaportes-event-item{align-items:flex-start;}
+    .passaportes-event{flex-direction:column; gap:12px; margin-top:18px; padding:15px;}
+    .passaportes-event-item{width:100%; min-width:0;}
     .bloco-card,
     .passaporte-card{padding:30px 22px;}
     .conduzida-body,
@@ -596,7 +617,7 @@
   <div class="nav-inner">
     <a href="#hero" class="nav-mark">FONTE<em>75</em></a>
     <div class="nav-links">
-      <a href="#cta-final" class="btn btn-primary">Quero participar</a>
+      <a href="#passaportes" class="btn btn-primary">Quero participar</a>
     </div>
   </div>
 </nav>
@@ -624,10 +645,20 @@
           <span class="lockup-company">75Comunica</span>
         </div>
       </div>
-      <div class="hero-cta"><a href="#cta-final" class="btn btn-primary">Quero participar da oficina</a></div>
+      <div class="hero-cta"><a href="#passaportes" class="btn btn-primary">Quero participar da oficina</a></div>
       <div class="hero-event" aria-label="Data e local da oficina">
-        <div class="hero-event-item"><span class="hero-event-label">Data</span><span class="hero-event-value">19 de agosto de 2026</span></div>
-        <div class="hero-event-item"><span class="hero-event-label">Local</span><span class="hero-event-value">ACATE Primavera, Auditório WOW, Florianópolis, SC</span></div>
+        <div class="hero-event-item">
+          <span class="hero-event-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 2v4"></path><path d="M16 2v4"></path><path d="M3 10h18"></path><rect x="4" y="5" width="16" height="16" rx="2"></rect></svg>
+          </span>
+          <span class="hero-event-text"><span class="hero-event-label">Data</span><span class="hero-event-value">19 de agosto de 2026</span></span>
+        </div>
+        <div class="hero-event-item">
+          <span class="hero-event-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-11a7 7 0 0 0-14 0c0 5.8 7 11 7 11Z"></path><circle cx="12" cy="10" r="2.3"></circle></svg>
+          </span>
+          <span class="hero-event-text"><span class="hero-event-label">Local</span><span class="hero-event-value">ACATE Primavera, Florianópolis, SC</span></span>
+        </div>
       </div>
     </div>
   </div>
@@ -697,7 +728,7 @@
     </div>
 
     <div class="question-section">
-      <p class="question-prompt reveal">Se você vem sofrendo com esses sintomas, provavelmente o mercado não está percebendo com clareza suficiente o valor do seu produto ou serviço. <strong>É exatamente isso que resolvemos aqui.</strong></p>
+      <p class="question-prompt reveal">Se você vem sofrendo com esses sintomas, provavelmente o mercado não está percebendo com clareza suficiente o valor do seu produto ou serviço. <strong>É exatamente isso que resolvemos aqui de forma aplicada e diretamente no seu negócio.</strong></p>
     </div>
 
   </div>
@@ -715,7 +746,7 @@
       <p class="transicao-sub">Transformar valor em percepção exige mais do que conhecimento. Exige <span class="emphasis-mark">aplicação</span>.</p>
       <p>Você provavelmente já participou de palestras, cursos ou eventos e saiu com excelentes ideias.</p>
       <p>Porém, quando voltou para a empresa, percebeu que não conseguia responder, talvez, à pergunta mais importante:</p>
-      <p class="transicao-quote"><span class="emphasis-mark">"Como eu aplico isso no meu negócio".</span></p>
+      <p class="transicao-quote"><span class="emphasis-mark">"Como eu aplico isso no meu negócio?"</span></p>
       <p>E é aí que muitas iniciativas param. As teorias fazem sentido. As ideias são boas. Mas a empresa ainda precisa transformar aquilo em resultado real.</p>
     </div>
   </div>
@@ -931,7 +962,7 @@
       </div>
 
       <p class="publico-then">Então esta Oficina foi construída <strong>para você</strong>.</p>
-      <p class="publico-intro">A Oficina é indicada para</p>
+      <p class="publico-intro">A Oficina é indicada para:</p>
       <div class="publico-roles">
         <span class="publico-role">Empresários</span>
         <span class="publico-role">Sócios</span>
@@ -993,21 +1024,21 @@
       <div class="prova-card">
         <div class="prova-person">
           <img class="prova-photo" src="assets/depoimentos/leonardo-ingles.jpeg" alt="Leonardo Ingles de Sousa" loading="lazy" decoding="async">
-          <p class="prova-attrib"><b>Leonardo Ingles de Sousa</b>CFO da Komport Comercial Importadora S.A.</p>
+          <p class="prova-attrib"><b>Leonardo Ingles de Sousa</b>CFO em Komport Comercial Importadora S.A.</p>
         </div>
         <p class="prova-quote">"Reestruturou a área comercial, dando mais profissionalismo e transparência, levando a empresa a patamares superiores em sua performance."</p>
       </div>
       <div class="prova-card">
         <div class="prova-person">
           <img class="prova-photo" src="assets/depoimentos/luiz-dantas.png" alt="Luiz Dantas" loading="lazy" decoding="async">
-          <p class="prova-attrib"><b>Luiz Dantas</b>CEO da Manager Systems</p>
+          <p class="prova-attrib"><b>Luiz Dantas</b>CEO em Manager Systems</p>
         </div>
         <p class="prova-quote">"Profissional de alta performance, com capacidade de desenvolver projetos e implementá-los com segurança e confiabilidade."</p>
       </div>
       <div class="prova-card">
         <div class="prova-person">
           <img class="prova-photo" src="assets/depoimentos/carolina-savi.jpg" alt="Carolina Savi" loading="lazy" decoding="async">
-          <p class="prova-attrib"><b>Carolina Savi</b>CEO da Zattos</p>
+          <p class="prova-attrib"><b>Carolina Savi</b>CEO em Zathos Care</p>
         </div>
         <p class="prova-quote">"As soluções propostas estão alinhadas com os objetivos da empresa, trazendo mais clareza e direcionamento para nossas metas de crescimento."</p>
       </div>
@@ -1024,7 +1055,7 @@
     </div>
     <div class="faq-list reveal">
       <details class="faq-item">
-        <summary>Já fiz outros cursos e treinamentos. Por que essa seria diferente?</summary>
+        <summary>Já fiz outros cursos e treinamentos. Por que esta seria diferente?</summary>
         <p>Porque o problema geralmente não é falta de conteúdo. É a distância entre aprender e aplicar. Você não sai com conceitos. Sai com definições construídas sobre a sua própria empresa.</p>
       </details>
       <details class="faq-item">
@@ -1032,7 +1063,7 @@
         <p>Sim. A lógica parte do valor da sua própria solução e funciona para produto ou serviço, B2B, B2B2C ou B2C.</p>
       </details>
       <details class="faq-item">
-        <summary>Em só 4 horas dá pra construir algo relevante?</summary>
+        <summary>Em só quatro horas dá para construir algo relevante?</summary>
         <p>Não é reformular a empresa inteira numa tarde. É uma imersão concentrada para construir uma base concreta que você continua desenvolvendo depois.</p>
       </details>
       <details class="faq-item">
@@ -1054,8 +1085,18 @@
       <p class="eyebrow eyebrow--on-dark eyebrow--flanked">Investimento</p>
       <h2>Escolha o seu passaporte para:</h2>
       <div class="passaportes-event" aria-label="Data e local da oficina">
-        <div class="passaportes-event-item"><span class="passaportes-event-label">Data</span><span>19 de agosto de 2026</span></div>
-        <div class="passaportes-event-item"><span class="passaportes-event-label">Local</span><span>ACATE Primavera, Auditório WOW, Florianópolis, SC</span></div>
+        <div class="passaportes-event-item">
+          <span class="passaportes-event-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 2v4"></path><path d="M16 2v4"></path><path d="M3 10h18"></path><rect x="4" y="5" width="16" height="16" rx="2"></rect></svg>
+          </span>
+          <span class="passaportes-event-text"><span class="passaportes-event-label">Data</span><span class="passaportes-event-value">19 de agosto de 2026</span></span>
+        </div>
+        <div class="passaportes-event-item">
+          <span class="passaportes-event-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-11a7 7 0 0 0-14 0c0 5.8 7 11 7 11Z"></path><circle cx="12" cy="10" r="2.3"></circle></svg>
+          </span>
+          <span class="passaportes-event-text"><span class="passaportes-event-label">Local</span><span class="passaportes-event-value">ACATE Primavera, Florianópolis, SC</span></span>
+        </div>
       </div>
     </div>
     <div class="passaportes-grid reveal">
@@ -1086,7 +1127,7 @@
   <div class="container reveal">
     <p class="ctafinal-eyebrow">Sua empresa entrega valor. A questão é quanto desse valor o mercado consegue <strong>enxergar</strong>.</p>
     <h2>Aumente o <span class="emphasis-mark">valor percebido</span> da sua empresa, venda melhor e lucre mais.</h2>
-    <a href="#" class="btn btn-primary">Quero participar da oficina</a>
+    <a href="https://www.sympla.com.br/evento/oficina-de-vendas-marketing/3466639?share_id=copiarlink" class="btn btn-primary" target="_blank" rel="noopener">Quero participar da oficina</a>
   </div>
 </section>
 
