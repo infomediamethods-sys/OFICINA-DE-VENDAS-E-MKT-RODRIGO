@@ -362,12 +362,6 @@
   .visual-step h3{font-size:clamp(1.02rem,1.7vw,1.24rem); color:var(--white); margin-bottom:10px; line-height:1.22;}
   .visual-step h3 span{font-family:'Inter',sans-serif; font-size:0.86em; font-weight:800; color:var(--champagne-soft);}
   .visual-step p{font-size:0.95rem; color:rgba(255,255,255,0.72); line-height:1.5; max-width:220px; margin:0 auto;}
-  .visual-application-note{
-    max-width:720px; margin:0 auto; padding:24px 28px; border-left:3px solid var(--champagne);
-    background:rgba(255,255,255,0.06); border-radius:8px; color:rgba(255,255,255,0.78);
-    font-size:0.98rem; line-height:1.75;
-  }
-  .visual-application-note strong{color:var(--white); font-weight:700;}
   @media (max-width:900px){
     .visual-steps{grid-template-columns:repeat(2,minmax(0,1fr)); gap:38px 28px;}
     .visual-step::after{display:none;}
@@ -384,7 +378,6 @@
     .visual-icon{width:92px; height:92px; margin-bottom:15px;}
     .visual-icon svg{width:48px; height:48px;}
     .visual-step p{max-width:280px;}
-    .visual-application-note{padding:20px 22px; margin:0;}
   }
 
   /* ===================== BLOCOS ===================== */
@@ -419,7 +412,7 @@
   .mudanca-result h3{font-size:0.96rem; color:var(--navy-950); margin-bottom:9px; line-height:1.25;}
   .mudanca-result p{font-size:0.9rem; color:var(--ink-soft); line-height:1.48;}
   .mudanca-close{
-    max-width:620px; margin:0 auto; text-align:center; padding-top:24px; border-top:1px solid rgba(140,106,50,0.18);
+    max-width:620px; margin:0 auto; text-align:center; padding-top:10px;
   }
   .mudanca-close p{font-size:0.98rem; color:var(--ink-soft); line-height:1.7; margin-bottom:8px;}
   .mudanca-close p:last-child{margin-bottom:0;}
@@ -677,7 +670,7 @@
       </div>
 
       <div class="diagnostico-card diagnostico-card--symptoms">
-        <span class="diagnostico-kicker">Aí aparecem os sintomas</span>
+        <span class="diagnostico-kicker">Então aparecem os sintomas</span>
         <ul class="consequence-list">
           <li>
             <span class="consequence-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="7" cy="7" r="2" stroke="currentColor" stroke-width="1.4"/><circle cx="17" cy="17" r="2" stroke="currentColor" stroke-width="1.4"/><path d="M18 6L6 18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
@@ -693,7 +686,7 @@
           </li>
           <li>
             <span class="consequence-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13h3l8-5v10l-8-5H5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M8 13v5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
-            <strong>Marketing comunica sem força</strong>
+            <strong>A comunicação não gera interesse</strong>
           </li>
           <li>
             <span class="consequence-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3.5 12s3-5 8.5-5 8.5 5 8.5 5-3 5-8.5 5-8.5-5-8.5-5z" stroke="currentColor" stroke-width="1.4"/><path d="M5 19L19 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
@@ -733,7 +726,7 @@
   <div class="container reveal">
     <div class="diferencial-visual-head">
       <h2>Aqui, sua empresa é o <span class="emphasis-mark">material de trabalho</span>!</h2>
-      <p>Durante toda a Oficina, cada exercício parte da realidade da sua empresa e termina em decisões prontas para aplicar.</p>
+      <p>Durante quatro horas, você toma decisões, organiza ideias e constrói materiais aplicados diretamente ao seu negócio. Tudo para que a segunda-feira comece com mais clareza e menos improviso.</p>
     </div>
 
     <div class="visual-steps" aria-label="Como sua empresa vira material prático na oficina">
@@ -769,8 +762,6 @@
         <p>Você sai com materiais prontos para usar.</p>
       </div>
     </div>
-
-    <p class="visual-application-note">Durante quatro horas, você toma decisões, organiza ideias e constrói materiais aplicados diretamente ao seu negócio. Tudo para que a segunda-feira comece com <strong>mais clareza e menos improviso</strong>.</p>
 
   </div>
 </section>
@@ -815,7 +806,7 @@
 </section>
 
 <!-- ===================== O QUE MUDA (nova seção) ===================== -->
-<section class="section section--cream">
+<section class="section section--white">
   <div class="container">
     <div class="mudanca-head reveal">
       <p class="eyebrow eyebrow--flanked">Depois da oficina</p>
