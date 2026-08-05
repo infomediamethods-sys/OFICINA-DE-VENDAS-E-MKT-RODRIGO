@@ -52,9 +52,7 @@
 
   .container{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
   .section{padding:var(--space-section) 0;}
-  .snap-section{scroll-margin-top:68px;}
-  html.motion-snap-enabled{scroll-snap-type:y mandatory;}
-  html.motion-snap-enabled .snap-section{scroll-snap-align:start; scroll-snap-stop:always;}
+  .motion-section{scroll-margin-top:68px;}
   @media (max-width:780px){ .section{padding:64px 0;} }
   .section--cream{background:var(--cream);}
   .section--navy{background:var(--navy-900); color:var(--white);}
@@ -64,12 +62,15 @@
   .reveal{
     --reveal-x:0;
     --reveal-y:18px;
+    --reveal-delay:0ms;
     opacity:0;
     transform:translate3d(var(--reveal-x), var(--reveal-y), 0);
     transition:opacity 0.78s cubic-bezier(.2,.7,.2,1), transform 0.78s cubic-bezier(.2,.7,.2,1);
+    transition-delay:var(--reveal-delay);
     will-change:opacity, transform;
   }
   .reveal.is-visible{opacity:1; transform:translateY(0);}
+  .reveal.is-instant{transition:none !important;}
   .section-motion--from-left .reveal{--reveal-x:-58px; --reveal-y:0;}
   .section-motion--from-right .reveal{--reveal-x:58px; --reveal-y:0;}
   .section-motion--from-bottom .reveal{--reveal-x:0; --reveal-y:54px;}
@@ -1162,125 +1163,47 @@
   ].filter(Boolean);
 
   motionSections.forEach((section, index) => {
-    section.classList.add('snap-section');
+    section.classList.add('motion-section');
     if(index === 0) return;
 
     const direction = ['from-left', 'from-right', 'from-bottom'][(index - 1) % 3];
     section.classList.add('section-motion', `section-motion--${direction}`);
   });
 
-  if(!reduceMotion){
-    document.documentElement.classList.add('motion-snap-enabled');
-  }
-
   const revealEls = document.querySelectorAll('.reveal');
+  let lastScrollY = window.scrollY;
+  let scrollingDown = true;
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    scrollingDown = currentScrollY >= lastScrollY;
+    lastScrollY = currentScrollY;
+  }, { passive:true });
+
+  motionSections.forEach(section => {
+    const sectionReveals = [...section.querySelectorAll('.reveal')];
+    sectionReveals.forEach((el, index) => {
+      el.style.setProperty('--reveal-delay', `${Math.min(index * 70, 210)}ms`);
+    });
+  });
+
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if(entry.isIntersecting){
+        if(reduceMotion || !scrollingDown){
+          entry.target.classList.add('is-instant');
+        }
+
         entry.target.classList.add('is-visible');
         io.unobserve(entry.target);
+
+        if(entry.target.classList.contains('is-instant')){
+          requestAnimationFrame(() => entry.target.classList.remove('is-instant'));
+        }
       }
     });
-  }, { threshold: 0.18, rootMargin: '0px 0px -90px 0px' });
+  }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
   revealEls.forEach(el => io.observe(el));
-
-  if(!reduceMotion && window.innerWidth > 760 && motionSections.length > 1){
-    let wheelIntent = 0;
-    let isPaging = false;
-    let touchStartY = null;
-    const wheelThreshold = 115;
-    const touchThreshold = 90;
-
-    const currentSectionIndex = () => {
-      const viewportAnchor = window.innerHeight * 0.42;
-      let bestIndex = 0;
-      let bestDistance = Infinity;
-
-      motionSections.forEach((section, index) => {
-        const rect = section.getBoundingClientRect();
-        if(rect.top <= viewportAnchor && rect.bottom >= viewportAnchor){
-          bestIndex = index;
-          bestDistance = 0;
-          return;
-        }
-
-        const sectionCenter = rect.top + rect.height / 2;
-        const distance = Math.abs(sectionCenter - window.innerHeight / 2);
-        if(distance < bestDistance){
-          bestDistance = distance;
-          bestIndex = index;
-        }
-      });
-
-      return bestIndex;
-    };
-
-    const canLeaveSection = (section, direction) => {
-      const rect = section.getBoundingClientRect();
-      const navOffset = 72;
-      const sectionTallerThanViewport = rect.height > window.innerHeight - navOffset;
-
-      if(!sectionTallerThanViewport) return true;
-      if(direction > 0) return rect.bottom <= window.innerHeight + 4;
-      return rect.top >= navOffset - 4;
-    };
-
-    const pageTo = (direction) => {
-      const index = currentSectionIndex();
-      const current = motionSections[index];
-      if(!canLeaveSection(current, direction)) return false;
-
-      const nextIndex = Math.max(0, Math.min(motionSections.length - 1, index + direction));
-      if(nextIndex === index) return false;
-
-      isPaging = true;
-      motionSections[nextIndex].scrollIntoView({ behavior:'smooth', block:'start' });
-      window.setTimeout(() => {
-        isPaging = false;
-        wheelIntent = 0;
-      }, 850);
-      return true;
-    };
-
-    window.addEventListener('wheel', (event) => {
-      if(event.ctrlKey || event.metaKey || event.shiftKey || isPaging) return;
-
-      const direction = Math.sign(event.deltaY);
-      if(direction === 0) return;
-
-      const index = currentSectionIndex();
-      if(!canLeaveSection(motionSections[index], direction)) return;
-
-      wheelIntent = Math.sign(wheelIntent) === direction ? wheelIntent + event.deltaY : event.deltaY;
-
-      if(Math.abs(wheelIntent) < wheelThreshold){
-        event.preventDefault();
-        return;
-      }
-
-      event.preventDefault();
-      pageTo(direction);
-    }, { passive:false });
-
-    window.addEventListener('touchstart', (event) => {
-      if(event.touches.length !== 1) return;
-      touchStartY = event.touches[0].clientY;
-    }, { passive:true });
-
-    window.addEventListener('touchmove', (event) => {
-      if(touchStartY === null || isPaging || event.touches.length !== 1) return;
-      const delta = touchStartY - event.touches[0].clientY;
-      const direction = Math.sign(delta);
-
-      if(Math.abs(delta) < touchThreshold || direction === 0) return;
-      const index = currentSectionIndex();
-      if(!canLeaveSection(motionSections[index], direction)) return;
-
-      event.preventDefault();
-      pageTo(direction);
-      touchStartY = null;
-    }, { passive:false });
-  }
 </script>
 
 </body>
