@@ -7,7 +7,7 @@
 <meta name="description" content="Uma imersão realmente prática para empresários que querem organizar melhor como sua empresa vende, se posiciona e se comunica, transformando isso em mais vendas e mais lucro.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap" rel="stylesheet">
 <style>
 
   /* ===================== DESIGN TOKENS ===================== */
@@ -37,11 +37,11 @@
     *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
   }
   body{
-    margin:0; width:100%; max-width:100%; font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    margin:0; width:100%; max-width:100%; font-family:'Sen',-apple-system,BlinkMacSystemFont,sans-serif;
     color:var(--ink); background:var(--white); line-height:1.6; -webkit-font-smoothing:antialiased;
     overflow-x:hidden; overscroll-behavior:none;
   }
-  h1,h2,h3{font-family:'Fraunces',Georgia,serif; font-weight:500; line-height:1.15; margin:0; letter-spacing:-0.01em;}
+  h1,h2,h3{font-family:'Sen',-apple-system,BlinkMacSystemFont,sans-serif; font-weight:700; line-height:1.15; margin:0; letter-spacing:0;}
   p{margin:0;}
   ul{margin:0; padding:0; list-style:none;}
   a{color:inherit;}
@@ -86,7 +86,7 @@
   }
 
   .eyebrow{
-    font-family:'Inter',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase;
+    font-family:'Sen',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase;
     color:var(--champagne-deep); display:inline-flex; align-items:center; gap:10px; margin-bottom:18px;
   }
   .eyebrow::before{content:""; width:22px; height:1px; background:var(--champagne-deep); display:inline-block;}
@@ -98,7 +98,7 @@
   /* Buttons: uppercase per brief's CTA convention */
   .btn{
     display:inline-flex; align-items:center; gap:10px; padding:16px 32px;
-    font-family:'Inter',sans-serif; font-size:0.82rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+    font-family:'Sen',sans-serif; font-size:0.82rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
     text-decoration:none; border-radius:2px; border:1px solid transparent; cursor:pointer;
     transition:transform 0.22s ease, background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
   }
@@ -117,7 +117,7 @@
   .nav-mark{display:inline-flex; align-items:center; gap:12px; max-width:54vw; text-decoration:none;}
   .nav-symbol{display:block; width:37px; height:52px; object-fit:cover; flex-shrink:0;}
   .nav-brand-text{display:flex; align-items:center; gap:12px; color:var(--white);}
-  .nav-brand-name{font-family:'Inter',sans-serif; font-size:1.56rem; line-height:1; font-weight:800; letter-spacing:-0.07em;}
+  .nav-brand-name{font-family:'Sen',sans-serif; font-size:1.56rem; line-height:1; font-weight:800; letter-spacing:0;}
   .nav-brand-divider{width:1px; height:34px; background:var(--white); opacity:0.9;}
   .nav-brand-tagline{display:flex; flex-direction:column; gap:2px; font-size:0.42rem; line-height:1.15; font-weight:700; letter-spacing:0.18em; text-transform:uppercase;}
   .nav-links{display:flex; align-items:center; gap:28px;}
@@ -184,9 +184,9 @@
   @media (max-width:900px){ .authority-photo img{max-width:560px;} }
   .brand-lockup{display:flex; align-items:center; justify-content:center; gap:36px; flex-wrap:wrap; margin:2px 0 0;}
   .lockup-person{display:flex; flex-direction:column; align-items:center; gap:7px;}
-  .lockup-name{font-family:'Fraunces',serif; font-size:clamp(1.15rem,2.4vw,1.5rem); color:var(--white); font-weight:500; letter-spacing:0.005em; white-space:nowrap;}
+  .lockup-name{font-family:'Sen',sans-serif; font-size:clamp(1.15rem,2.4vw,1.5rem); color:var(--white); font-weight:500; letter-spacing:0.005em; white-space:nowrap;}
   .lockup-company{font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--champagne-soft); font-weight:700;}
-  .lockup-amp{font-family:'Fraunces',serif; font-style:italic; font-size:1.5rem; color:var(--champagne); line-height:1; padding-top:2px;}
+  .lockup-amp{font-family:'Sen',sans-serif; font-style:italic; font-size:1.5rem; color:var(--champagne); line-height:1; padding-top:2px;}
   @media (max-width:520px){
     .hero{padding:64px 0 44px;}
     .hero-inner{padding:0 22px;}
@@ -256,13 +256,13 @@
   .problema-hero{max-width:960px;}
   .problema-hero h2{font-size:clamp(1.72rem,3vw,2.32rem); line-height:1.15; color:var(--navy-950);}
   .money-line{
-    margin:28px 0 0; max-width:640px; font-family:'Fraunces',serif; font-style:italic; font-weight:500;
+    margin:28px 0 0; max-width:640px; font-family:'Sen',sans-serif; font-style:italic; font-weight:500;
     font-size:clamp(1.1rem,2vw,1.48rem); line-height:1.3; color:var(--champagne-deep);
   }
 
   .bridge-line{
     margin-top:28px; max-width:660px; padding:16px 0 16px 22px; border-left:3px solid var(--champagne);
-    font-family:'Inter',sans-serif; font-size:1.02rem; line-height:1.7; color:var(--ink-soft);
+    font-family:'Sen',sans-serif; font-size:1.02rem; line-height:1.7; color:var(--ink-soft);
   }
   .bridge-line strong{color:var(--navy-950); font-weight:700;}
   .diagnostico-flow{max-width:640px; margin:44px auto 0;}
@@ -270,7 +270,7 @@
   .diagnostico-card--navy{background:var(--navy-900); color:var(--white);}
   .diagnostico-card--symptoms{background:var(--white); border:1px solid var(--champagne); box-shadow:0 18px 44px rgba(25,123,168,0.12);}
   .diagnostico-kicker{
-    display:block; margin-bottom:22px; font-family:'Fraunces',serif; font-size:clamp(1.08rem,2vw,1.28rem);
+    display:block; margin-bottom:22px; font-family:'Sen',sans-serif; font-size:clamp(1.08rem,2vw,1.28rem);
     font-weight:600; line-height:1.3; text-align:left;
   }
   .diagnostico-card--navy .diagnostico-kicker{color:var(--white);}
@@ -313,7 +313,7 @@
     align-items:center; justify-content:center; color:var(--champagne-deep);
   }
   .consequence-icon svg{width:17px; height:17px;}
-  .consequence-list .number{font-family:'Fraunces',serif; font-style:italic; font-size:1.05rem; color:var(--champagne-deep); flex-shrink:0; width:24px;}
+  .consequence-list .number{font-family:'Sen',sans-serif; font-style:italic; font-size:1.05rem; color:var(--champagne-deep); flex-shrink:0; width:24px;}
   .consequence-list strong{color:var(--navy-950);}
   @media (max-width:560px){
     .diagnostico-card{padding:28px 24px;}
@@ -326,7 +326,7 @@
   .question-section{color:var(--ink); padding:24px 0 76px;}
   .question-section .container{max-width:720px;}
   .question-prompt{
-    position:relative; text-align:center; font-family:'Inter',sans-serif; font-style:normal; font-size:1.02rem;
+    position:relative; text-align:center; font-family:'Sen',sans-serif; font-style:normal; font-size:1.02rem;
     color:var(--ink-soft); line-height:1.75; max-width:620px; margin:0 auto; padding:0 6px;
   }
   .question-prompt::before,
@@ -350,12 +350,12 @@
     object-fit:cover; object-position:center; border-radius:8px; box-shadow:0 22px 56px rgba(29,29,27,0.14);
   }
   .transicao-sub{
-    font-family:'Fraunces',serif; font-style:italic; font-size:1.05rem; color:var(--navy-900);
+    font-family:'Sen',sans-serif; font-style:italic; font-size:1.05rem; color:var(--navy-900);
     max-width:640px; margin:0 0 34px;
   }
   .transicao p{font-size:1.02rem; color:var(--ink-soft); max-width:620px; margin-bottom:14px;}
   .transicao-quote{
-    font-family:'Fraunces',serif; font-style:italic; font-size:1.12rem; color:var(--navy-950);
+    font-family:'Sen',sans-serif; font-style:italic; font-size:1.12rem; color:var(--navy-950);
     padding:20px 0 20px 26px; border-left:3px solid var(--champagne); margin:26px 0;
   }
   .transicao-blocks{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line-light); border:1px solid var(--line-light); border-radius:8px; overflow:hidden; margin-top:40px;}
@@ -381,7 +381,7 @@
   }
   .visual-icon svg{width:58px; height:58px;}
   .visual-step h3{font-size:clamp(1.02rem,1.7vw,1.24rem); color:var(--white); margin-bottom:10px; line-height:1.22;}
-  .visual-step h3 span{font-family:'Inter',sans-serif; font-size:0.86em; font-weight:800; color:var(--champagne-soft);}
+  .visual-step h3 span{font-family:'Sen',sans-serif; font-size:0.86em; font-weight:800; color:var(--champagne-soft);}
   .visual-step p{font-size:0.95rem; color:rgba(255,255,255,0.72); line-height:1.5; max-width:220px; margin:0 auto;}
   @media (max-width:900px){
     .visual-steps{grid-template-columns:repeat(2,minmax(0,1fr)); gap:38px 28px;}
@@ -409,7 +409,7 @@
   .blocos{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line-light); border:1px solid var(--line-light); border-radius:8px; overflow:hidden;}
   @media (max-width:860px){ .blocos{grid-template-columns:1fr;} }
   .bloco-card{background:var(--white); border-radius:8px; padding:40px 36px;}
-  .bloco-num{font-family:'Fraunces',serif; font-style:italic; font-size:0.92rem; color:var(--champagne-deep); margin-bottom:6px; display:block;}
+  .bloco-num{font-family:'Sen',sans-serif; font-style:italic; font-size:0.92rem; color:var(--champagne-deep); margin-bottom:6px; display:block;}
   .bloco-autor{font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; color:var(--ink-soft); margin-bottom:16px; display:block;}
   .bloco-card h3{font-size:1.22rem; color:var(--navy-950); margin-bottom:16px; line-height:1.3;}
   .bloco-list{display:flex; flex-direction:column; gap:11px;}
@@ -467,7 +467,7 @@
   .publico-signal p{font-size:0.9rem; color:var(--ink-soft); line-height:1.48;}
   .publico-then{
     max-width:620px; margin:0 auto 34px; padding-top:24px;
-    text-align:center; font-family:'Fraunces',serif; font-style:italic; font-size:1.05rem; color:var(--navy-900);
+    text-align:center; font-family:'Sen',sans-serif; font-style:italic; font-size:1.05rem; color:var(--navy-900);
   }
   .publico-intro{text-align:center; font-size:0.92rem; color:var(--ink-soft); margin-bottom:16px; text-transform:uppercase; letter-spacing:0.06em; font-weight:600;}
   .publico-roles{display:flex; flex-wrap:wrap; justify-content:center; gap:8px; max-width:780px; margin:0 auto;}
@@ -507,7 +507,7 @@
   .prova-card{background:var(--cream); border:1px solid var(--line-light); border-radius:8px; padding:28px 26px;}
   .prova-person{display:flex; align-items:center; gap:14px; margin-bottom:20px;}
   .prova-photo{width:58px; height:58px; border-radius:50%; object-fit:cover; flex-shrink:0; border:2px solid var(--white); box-shadow:0 8px 18px rgba(29,29,27,0.12);}
-  .prova-quote{font-family:'Fraunces',serif; font-size:0.96rem; color:var(--navy-950); line-height:1.5;}
+  .prova-quote{font-family:'Sen',sans-serif; font-size:0.96rem; color:var(--navy-950); line-height:1.5;}
   .prova-attrib{font-size:0.82rem; color:var(--ink-soft);}
   .prova-attrib b{display:block; color:var(--navy-900); font-size:0.88rem; margin-bottom:2px;}
 
@@ -517,11 +517,11 @@
   .faq-list{max-width:780px;}
   .faq-item{border-bottom:1px solid var(--line-light);}
   .faq-item summary{
-    padding:20px 4px; cursor:pointer; font-family:'Fraunces',serif; font-size:1.02rem; color:var(--navy-950);
+    padding:20px 4px; cursor:pointer; font-family:'Sen',sans-serif; font-size:1.02rem; color:var(--navy-950);
     display:flex; justify-content:space-between; align-items:center; gap:20px; list-style:none;
   }
   .faq-item summary::-webkit-details-marker{display:none;}
-  .faq-item summary::after{content:"+"; font-family:'Inter',sans-serif; font-size:1.25rem; color:var(--champagne-deep); transition:transform 0.25s ease; flex-shrink:0;}
+  .faq-item summary::after{content:"+"; font-family:'Sen',sans-serif; font-size:1.25rem; color:var(--champagne-deep); transition:transform 0.25s ease; flex-shrink:0;}
   .faq-item[open] summary::after{transform:rotate(45deg);}
   .faq-item p{padding:0 4px 20px; color:var(--ink-soft); font-size:0.93rem; max-width:640px;}
 
@@ -553,9 +553,9 @@
   @media (max-width:900px){ .passaportes-grid{grid-template-columns:1fr; max-width:460px; margin:0 auto;} }
   .passaporte-card{background:var(--navy-800); border:1px solid var(--line-dark); border-radius:8px; padding:32px 26px; display:flex; flex-direction:column; height:100%;}
   .passaporte-card--vip{background:var(--navy-700); border-color:var(--champagne);}
-  .passaporte-name{font-family:'Fraunces',serif; font-size:1.02rem; color:var(--champagne-soft); margin-bottom:16px; line-height:1.3;}
+  .passaporte-name{font-family:'Sen',sans-serif; font-size:1.02rem; color:var(--champagne-soft); margin-bottom:16px; line-height:1.3;}
   .passaporte-desc{font-size:0.88rem; color:rgba(255,255,255,0.72); margin-bottom:22px; flex-grow:1;}
-  .passaporte-value{font-family:'Fraunces',serif; font-style:italic; font-size:0.98rem; color:rgba(255,255,255,0.5); margin-bottom:20px;}
+  .passaporte-value{font-family:'Sen',sans-serif; font-style:italic; font-size:0.98rem; color:rgba(255,255,255,0.5); margin-bottom:20px;}
 
   .transicao .eyebrow,
   .metodo-head .eyebrow,
@@ -570,7 +570,7 @@
     gap:10px;
     max-width:none;
     margin:0 0 18px;
-    font-family:'Inter',sans-serif;
+    font-family:'Sen',sans-serif;
     font-size:0.72rem;
     font-weight:700;
     line-height:1.6;
@@ -591,7 +591,7 @@
   .footer-inner{max-width:var(--maxw); margin:0 auto; padding:0 28px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px; font-size:0.82rem; color:rgba(255,255,255,0.58);}
   .footer-contact b{color:rgba(255,255,255,0.88); display:block; margin-bottom:4px; font-weight:600;}
   .footer-contact{line-height:1.6;}
-  .footer-brands{font-family:'Fraunces',serif; font-style:italic; color:var(--champagne-soft);}
+  .footer-brands{font-family:'Sen',sans-serif; font-style:italic; color:var(--champagne-soft);}
 
   @media (max-width:520px){
     :root{--space-section:68px;}
@@ -600,7 +600,7 @@
     .nav-mark{gap:8px; max-width:48vw;}
     .nav-symbol{width:27px; height:39px;}
     .nav-brand-text{gap:8px;}
-    .nav-brand-name{font-size:1.08rem; letter-spacing:-0.06em;}
+    .nav-brand-name{font-size:1.08rem; letter-spacing:0;}
     .nav-brand-divider{height:27px;}
     .nav-brand-tagline{font-size:0.32rem; letter-spacing:0.12em;}
     .nav-links .btn{width:auto; padding:9px 14px; font-size:0.66rem;}
