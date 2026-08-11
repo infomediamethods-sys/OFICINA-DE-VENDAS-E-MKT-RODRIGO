@@ -120,6 +120,62 @@
   .btn-outline-light:hover{background:var(--champagne); color:var(--navy-950); transform:translateY(-2px);}
   .btn-sm{padding:12px 24px; font-size:0.74rem;}
 
+  /* ===================== DISCOUNT POPUP ===================== */
+  body.popup-open{overflow:hidden;}
+  .discount-popup{
+    position:fixed; inset:0; z-index:250; display:none; align-items:center; justify-content:center;
+    padding:22px; background:rgba(29,29,27,0.76); backdrop-filter:blur(10px);
+  }
+  .discount-popup.is-visible{display:flex;}
+  .discount-popup-card{
+    position:relative; overflow:hidden; width:min(100%,460px); padding:34px 28px 28px;
+    border:1px solid rgba(54,169,225,0.48); border-radius:8px;
+    background:
+      radial-gradient(circle at 18% 0%, rgba(54,169,225,0.26), transparent 36%),
+      linear-gradient(145deg, rgba(54,169,225,0.16), rgba(29,29,27,0.98) 46%, rgba(37,37,35,0.98));
+    color:var(--white); text-align:left;
+    box-shadow:0 30px 90px rgba(0,0,0,0.42), inset 0 1px 0 rgba(255,255,255,0.08);
+  }
+  .discount-popup-card::before{
+    content:""; position:absolute; left:0; right:0; top:0; height:4px;
+    background:linear-gradient(90deg, rgba(54,169,225,0.1), var(--champagne), var(--champagne-soft), rgba(54,169,225,0.16));
+    box-shadow:0 0 22px rgba(54,169,225,0.55);
+  }
+  .discount-popup-close{
+    position:absolute; top:14px; right:14px; width:34px; height:34px; border:1px solid rgba(143,211,239,0.28);
+    border-radius:999px; background:rgba(255,255,255,0.06); color:rgba(255,255,255,0.78);
+    font-size:1.25rem; line-height:1; cursor:pointer;
+  }
+  .discount-popup-close:hover{color:var(--white); border-color:rgba(143,211,239,0.58);}
+  .discount-popup-kicker{
+    display:inline-flex; align-items:center; margin-bottom:18px; padding:7px 11px; border-radius:999px;
+    background:rgba(54,169,225,0.2); border:1px solid rgba(143,211,239,0.34);
+    color:var(--champagne-soft); font-size:0.68rem; font-weight:800; line-height:1;
+    letter-spacing:0.08em; text-transform:uppercase;
+  }
+  .discount-popup h2{
+    max-width:360px; margin-bottom:16px; color:var(--white); font-size:clamp(1.55rem,4.8vw,2.1rem);
+  }
+  .discount-popup p{
+    color:rgba(255,255,255,0.78); font-size:0.98rem; line-height:1.65; margin-bottom:24px;
+  }
+  .discount-popup strong{color:var(--white);}
+  .discount-popup-highlight{
+    color:var(--champagne-soft); font-weight:800; text-decoration-line:underline;
+    text-decoration-color:var(--champagne); text-decoration-thickness:2px; text-underline-offset:4px;
+  }
+  .discount-popup-actions{display:flex; flex-wrap:wrap; gap:12px; align-items:center;}
+  .discount-popup-secondary{
+    border:0; background:transparent; color:rgba(255,255,255,0.64); padding:12px 6px;
+    font-family:'Sen',sans-serif; font-size:0.78rem; font-weight:700; cursor:pointer;
+  }
+  .discount-popup-secondary:hover{color:var(--white);}
+  @media (max-width:520px){
+    .discount-popup-card{padding:30px 22px 24px;}
+    .discount-popup-actions .btn{width:100%;}
+    .discount-popup-secondary{width:100%; text-align:center;}
+  }
+
   /* ===================== NAV ===================== */
   .nav{position:sticky; top:0; z-index:100; background:rgba(29,29,27,0.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line-dark);}
   .nav-inner{max-width:var(--maxw); margin:0 auto; padding:16px 28px; display:flex; align-items:center; justify-content:space-between;}
@@ -623,7 +679,7 @@
   .passaportes-event-text{min-width:0;}
   .passaportes-event-label{display:block; margin-bottom:1px; font-size:0.64rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--champagne-soft);}
   .passaportes-event-value{display:block; min-width:0; color:rgba(255,255,255,0.84); font-size:0.84rem; font-weight:600;}
-  .passaportes-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .passaportes-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
   @media (max-width:900px){ .passaportes-grid{grid-template-columns:1fr; max-width:460px; margin:0 auto;} }
   .passaporte-card{
     position:relative; overflow:hidden; background:
@@ -672,11 +728,26 @@
     line-height:1.58; margin-bottom:26px; flex-grow:1;
   }
   .passaporte-desc strong{color:var(--white); font-weight:800;}
+  .passaporte-price{
+    position:relative; z-index:1; display:flex; flex-direction:column; align-items:flex-start;
+    gap:8px; margin-bottom:22px;
+  }
+  .passaporte-original{
+    font-size:0.9rem; color:rgba(255,255,255,0.55); text-decoration:line-through;
+    text-decoration-color:rgba(54,169,225,0.9); text-decoration-thickness:2px;
+  }
+  .passaporte-discount{
+    display:inline-flex; align-items:center; width:max-content; padding:6px 10px; border-radius:999px;
+    background:rgba(54,169,225,0.2); border:1px solid rgba(143,211,239,0.34);
+    color:var(--champagne-soft); font-size:0.68rem; font-weight:800; letter-spacing:0.08em;
+    line-height:1; text-transform:uppercase; box-shadow:0 0 16px rgba(54,169,225,0.18);
+  }
   .passaporte-value{
     position:relative; z-index:1; font-family:'Sen',sans-serif; font-size:1.3rem; color:var(--white);
     font-style:normal; font-weight:800; line-height:1.1; letter-spacing:0; margin-bottom:22px;
     text-shadow:0 0 16px rgba(54,169,225,0.3);
   }
+  .passaporte-price .passaporte-value{margin-bottom:0;}
   .passaporte-card .btn{position:relative; z-index:1;}
 
   .transicao .eyebrow,
@@ -1253,8 +1324,10 @@
     .passaportes-head .eyebrow{justify-content:center;}
     .passaportes-event{max-width:760px; margin-left:auto; margin-right:auto;}
     .passaportes-grid{
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:22px;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:26px;
+      max-width:980px;
+      margin:0 auto;
     }
     .passaporte-card{
       padding:42px 32px 34px;
@@ -2119,20 +2192,18 @@
       <div class="passaporte-card">
         <p class="passaporte-name">Passaporte</p>
         <p class="passaporte-desc"><strong>Acesso integral</strong> à Oficina de Vendas e Marketing, com participação completa em toda a experiência, incluindo conteúdo, materiais de apoio e exercícios práticos aplicados à realidade da empresa.</p>
-        <p class="passaporte-value">R$ 1.160,00</p>
-        <a href="https://www.sympla.com.br/evento/oficina-de-vendas-marketing/3466639?share_id=copiarlink" class="btn btn-outline-light btn-sm" target="_blank" rel="noopener">Quero me inscrever</a>
+        <div class="passaporte-price" aria-label="De R$ 1.160,00 por R$ 348,00, 70% off">
+          <span class="passaporte-original">R$ 1.160,00</span>
+          <span class="passaporte-discount">70% OFF</span>
+          <p class="passaporte-value">R$ 348,00</p>
+        </div>
+        <a href="https://www.sympla.com.br/evento/oficina-de-vendas-marketing/3466639?d=CUPOM70" class="btn btn-outline-light btn-sm" target="_blank" rel="noopener">Quero me inscrever</a>
       </div>
       <div class="passaporte-card">
         <p class="passaporte-name">Passaportes ACATE, ASCEVI e SINDUSCON</p>
         <p class="passaporte-desc"><strong>Condição especial</strong> de acesso integral à Oficina de Vendas e Marketing para empresas clientes ou associadas a essas entidades.</p>
         <p class="passaporte-value">R$ 580,00</p>
-        <a href="https://www.sympla.com.br/evento/oficina-de-vendas-marketing/3466639?share_id=copiarlink" class="btn btn-outline-light btn-sm" target="_blank" rel="noopener">Quero me inscrever</a>
-      </div>
-      <div class="passaporte-card">
-        <p class="passaporte-name">Passaporte VIP FONTE &amp; 75Comunica</p>
-        <p class="passaporte-desc"><strong>Acesso integral</strong> à Oficina de Vendas e Marketing para empresas que são clientes ou já foram clientes da FONTE Consultoria ou da 75Comunica.</p>
-        <p class="passaporte-value">R$ 580,00</p>
-        <a href="https://www.sympla.com.br/evento/oficina-de-vendas-marketing/3466639?share_id=copiarlink" class="btn btn-outline-light btn-sm" target="_blank" rel="noopener">Quero me inscrever</a>
+        <a href="https://www.sympla.com.br/evento/oficina-de-vendas-marketing/3466639?d=CUPOM70" class="btn btn-outline-light btn-sm" target="_blank" rel="noopener">Quero me inscrever</a>
       </div>
     </div>
   </div>
@@ -2143,7 +2214,7 @@
   <div class="container reveal">
     <p class="ctafinal-eyebrow">Sua empresa entrega valor. A questão é quanto desse valor o mercado consegue <strong>enxergar</strong>.</p>
     <h2>Aumente o <span class="emphasis-mark">valor percebido</span> da sua empresa, venda melhor e lucre mais.</h2>
-    <a href="https://www.sympla.com.br/evento/oficina-de-vendas-marketing/3466639?share_id=copiarlink" class="btn btn-primary" target="_blank" rel="noopener">Quero participar da oficina</a>
+    <a href="https://www.sympla.com.br/evento/oficina-de-vendas-marketing/3466639?d=CUPOM70" class="btn btn-primary" target="_blank" rel="noopener">Quero participar da oficina</a>
   </div>
 </section>
 
@@ -2154,6 +2225,18 @@
     <div class="footer-contact"><b>75Comunica</b>paulacosta@75comunica.com.br · +55 48 99101-2126</div>
   </div>
 </footer>
+
+<div class="discount-popup" data-discount-popup role="dialog" aria-modal="true" aria-labelledby="discount-popup-title" aria-describedby="discount-popup-copy">
+  <div class="discount-popup-card">
+    <button class="discount-popup-close" type="button" data-discount-close aria-label="Fechar aviso">×</button>
+    <span class="discount-popup-kicker">Últimos ingressos</span>
+    <h2 id="discount-popup-title">Últimos dias com <span class="discount-popup-highlight">70% OFF</span></h2>
+    <p id="discount-popup-copy">Os ingressos estão esgotando e esta é a reta final para garantir o <strong>Passaporte com desconto especial</strong> para a Oficina de Vendas e Marketing.</p>
+    <div class="discount-popup-actions">
+      <button class="btn btn-primary" type="button" data-discount-close>Compreendo</button>
+    </div>
+  </div>
+</div>
 
 <script>
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -2205,6 +2288,53 @@
     });
   }, { threshold: 0.16, rootMargin: '0px 0px -40px 0px' });
   revealEls.forEach(el => io.observe(el));
+
+  const discountPopup = document.querySelector('[data-discount-popup]');
+  const discountPopupKey = 'oficina-vendas-discount-popup-seen';
+
+  const hasSeenDiscountPopup = () => {
+    try{
+      return window.localStorage.getItem(discountPopupKey) === 'true';
+    }catch(error){
+      return false;
+    }
+  };
+
+  const markDiscountPopupSeen = () => {
+    try{
+      window.localStorage.setItem(discountPopupKey, 'true');
+    }catch(error){}
+  };
+
+  const closeDiscountPopup = () => {
+    if(!discountPopup) return;
+    discountPopup.classList.remove('is-visible');
+    document.body.classList.remove('popup-open');
+    markDiscountPopupSeen();
+  };
+
+  if(discountPopup && !hasSeenDiscountPopup()){
+    window.setTimeout(() => {
+      discountPopup.classList.add('is-visible');
+      document.body.classList.add('popup-open');
+    }, reduceMotion ? 80 : 700);
+
+    discountPopup.querySelectorAll('[data-discount-close]').forEach(button => {
+      button.addEventListener('click', closeDiscountPopup);
+    });
+
+    discountPopup.addEventListener('click', event => {
+      if(event.target === discountPopup){
+        closeDiscountPopup();
+      }
+    });
+
+    window.addEventListener('keydown', event => {
+      if(event.key === 'Escape' && discountPopup.classList.contains('is-visible')){
+        closeDiscountPopup();
+      }
+    });
+  }
 </script>
 
 </body>
