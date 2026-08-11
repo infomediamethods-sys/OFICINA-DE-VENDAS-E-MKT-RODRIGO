@@ -58,6 +58,12 @@
   .container{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
   .section{padding:var(--space-section) 0;}
   .motion-section{scroll-margin-top:68px; overflow:hidden;}
+  @media (min-width:901px){
+    html{scroll-padding-top:0;}
+    #oficina,
+    #publico,
+    #passaportes{scroll-margin-top:0;}
+  }
   @media (max-width:780px){ .section{padding:64px 0;} }
   .section--cream{background:var(--cream);}
   .section--navy{background:var(--navy-900); color:var(--white);}
@@ -1604,7 +1610,7 @@
       </span>
     </a>
     <div class="nav-links">
-      <a href="#a-oficina">Oficina</a>
+      <a href="#oficina">Oficina</a>
       <a href="#publico">Para quem é</a>
       <a href="#passaportes">Passaportes</a>
       <a href="#passaportes" class="btn btn-primary">Quero participar</a>
@@ -1739,7 +1745,7 @@
 </section>
 
 <!-- ===================== TRANSIÇÃO PARA A SOLUÇÃO ===================== -->
-<section class="section section--white">
+<section class="section section--white" id="oficina">
   <div class="container">
     <div class="transicao reveal">
       <div class="transicao-head">
